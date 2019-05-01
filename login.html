@@ -12,9 +12,13 @@
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
     <link rel="stylesheet" href="assets/theme/css/style.css">
-    <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/mbr-additional.css" type="text/css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <script src="https://code.jquery.com/jquery-3.4.0.slim.js" integrity="sha256-milezx5lakrZu0OP9b2QWFy1ft/UEUK6NH1Jqz8hUhQ=" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/js.js"></script>
+  
 
 
 </head>
@@ -37,35 +41,26 @@
                 </div>
                 <div class="container" >
                     <div class="row justify-content-center" >
-                        <div class="media-container-column col-lg-8" data-form-type="formoid">
-                            <form method="POST" class="mbr-form form-with-styler" data-form-title="Mobirise Form"><input
-                                    type="hidden" name="password" data-form-email="true"
-                                    value="nEd8eKBMRB8oklUMjiG5FuHAdbNTVb2O8rApPaMhjLU8zFzpG/z8qR3VwT83INGkBIZgkNsGNpeT2dxZLNVGppE8ms9bb55y+Wgfh/NBsMdzCoJmxB9jLRVN83booudg">
-                                <div class="row row-sm-offset">
-                                    <div hidden="hidden" data-form-alert="" class="alert alert-failure col-12">Gracias por iniciar sesión</div>
-                                    <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12">
-                                    </div>
-                                </div>
+                        <div id ="sistema" class="media-container-column col-lg-8" >
+                            <form class="mbr-form form-with-styler" >
                                 <div class="dragArea row row-sm-offset">
-                                    <div class="col-md-6 text-center form-group" data-for="Usuario">
+                                    <div class="col-md-6 text-center form-group" >
                                         <label for="name-form1-0"
                                             class="form-control-label mbr-fonts-style display-7">Usuario</label>
-                                        <input type="text" name="Usuario" data-form-field="Usuario" required="required"
-                                            class="form-control display-7" id="name-form1-0" placeholder="Ingresar usuario">
+                                        <input id="usuario" type="text" name="Usuario" required="required" class="form-control display-7" placeholder="Ingresar usuario">
                                     </div>
-                                    <div class="col-md-6 text-center form-group" data-for="Contraseña">
-                                        <label for="email-form1-0"
-                                            class="form-control-label mbr-fonts-style display-7">Contraseña</label>
-                                        <input type="password" name="password" data-form-field="Password"
-                                            required="required" class="form-control display-7" id="email-form1-0"
-                                            placeholder="Ingresar Contraseña">
+                                    <div class="col-md-6 text-center form-group" >
+                                        <label class="form-control-label mbr-fonts-style display-7">Contraseña</label>
+                                        <input  id="usuario" type="password" name="password" required="required" class="form-control display-7" placeholder="Ingresar Contraseña">
                                     </div>
                                     <div class="col-md-12 align-center mbr-fonts-style display-9 form-group"
                                         data-for="email">
                                         <u>Nunca compartas tu información</u>
                                     </div>
                                     <div class="pb-3 col-md-12 input-group-btn align-center">
-                                        <a type="submit" class="btn btn-form btn-secondary display-4" href="home.html">Ingresar</a>
+                                        <button id="login" class="btn btn-form btn-secondary display-4">
+                                            Ingresar
+                                        </button>
                                     </div>
                                 </div>
                             </form>
@@ -77,6 +72,7 @@
 
     </div>
 
+    
     <section once="" class="row cid-rkqZpFqmbn" id="footer6-1">
             <div class="col-12 text-center d-flex justify-content-center">
                 <p class="align-self-center text-center mbr-text mb-0 mbr-fonts-style display-10 ">
