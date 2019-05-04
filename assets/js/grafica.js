@@ -5,7 +5,15 @@ window.onload = function ()
     var tweetsNegativos=[];
     var tweetsPositivos=[];
     var tweetsNeutros=[];
+    var fecha=[];
+    var anio;
+    var mes;
+    var dia;
+    var date;
 
+    var Positivos=[];
+    var Neutros=[];
+    var Negativos=[];
    
 
 
@@ -13,14 +21,27 @@ window.onload = function ()
     {
         resultados = data;
         
-        for (i = 0; i < resultados.length; i+=3) 
+        for (i = 0; i < resultados.length; i+=4) 
         {
             tweetsPositivos.push(parseInt(resultados[i],10));
             tweetsNeutros.push(parseInt(resultados[i+1],10));
             tweetsNegativos.push(parseInt(resultados[i+2],10));
+            anio=resultados[i+3].substr(0,4);
+            mes=resultados[i+3].substr(5,2);
+            dia=resultados[i+3].substr(8,2);
+            date=new Date(anio+"-"+mes+"-"+dia);
+            fecha.push(date);
+            
         }
         
-       
+        for ( i = 0; i < tweetsPositivos.length; i++) 
+        {
+            Positivos.push({x: fecha[i],y:tweetsPositivos[i]});
+            Neutros.push({x:fecha[i],y: tweetsNeutros[i]});
+            Negativos.push({x: fecha[i],y: tweetsNegativos[i]});
+        }
+        
+        
 
         if(resultados.length<=0)
         {
@@ -50,7 +71,8 @@ window.onload = function ()
                     title: "Número de tuits",
                     crosshair: {
                         enabled: false
-                    }
+                    },
+                    margin: 10
                 },
                 toolTip:{
                     shared:true
@@ -73,22 +95,7 @@ window.onload = function ()
                     lineDashType: "solid",
                     xValueFormatString: "DD MMM, YYYY",
                     color: "#93B52D",
-                    dataPoints: [
-                        { x: new Date(2017, 0, 3), y: 500},
-                        { x: new Date(2017, 0, 4), y: 500},
-                        { x: new Date(2017, 0, 5), y: 43},
-                        { x: new Date(2017, 0, 6), y: 65 },
-                        { x: new Date(2017, 0, 7), y: 54 },
-                        { x: new Date(2017, 0, 8), y: 693 },
-                        { x: new Date(2017, 0, 9), y: 34 },
-                        { x: new Date(2017, 0, 10), y: 663 },
-                        { x: new Date(2017, 0, 11), y: 69 },
-                        { x: new Date(2017, 0, 12), y: 673 },
-                        { x: new Date(2017, 0, 13), y: 456 },
-                        { x: new Date(2017, 0, 14), y: 162 },
-                        { x: new Date(2017, 0, 15), y: 321 },
-                        { x: new Date(2017, 0, 16), y: 390 }
-                    ]
+                    dataPoints: Positivos
                 },
                 {
                     type: "line",
@@ -100,22 +107,7 @@ window.onload = function ()
                     lineDashType: "solid",
                     xValueFormatString: "DD MMM, YYYY",
                     color: "#4188D2",
-                    dataPoints: [
-                        { x: new Date(2017, 0, 3), y:  10},
-                        { x: new Date(2017, 0, 4), y: 500},
-                        { x: new Date(2017, 0, 5), y: 34},
-                        { x: new Date(2017, 0, 6), y: 65 },
-                        { x: new Date(2017, 0, 7), y: 54 },
-                        { x: new Date(2017, 0, 8), y: 693 },
-                        { x: new Date(2017, 0, 9), y: 34 },
-                        { x: new Date(2017, 0, 10), y: 663 },
-                        { x: new Date(2017, 0, 11), y: 69 },
-                        { x: new Date(2017, 0, 12), y: 673 },
-                        { x: new Date(2017, 0, 13), y: 456 },
-                        { x: new Date(2017, 0, 14), y: 162 },
-                        { x: new Date(2017, 0, 15), y: 321 },
-                        { x: new Date(2017, 0, 16), y: 390 }
-                    ]
+                    dataPoints: Neutros
                 },
                 {
                     type: "line",
@@ -127,22 +119,7 @@ window.onload = function ()
                     lineDashType: "solid",
                     xValueFormatString: "DD MMM, YYYY",
                     color: "#FF5A40",
-                    dataPoints: [
-                        { x: new Date(2017, 0, 3), y: 12 },
-                        { x: new Date(2017, 0, 4), y: 745 },
-                        { x: new Date(2017, 0, 5), y: 699 },
-                        { x: new Date(2017, 0, 6), y: 43 },
-                        { x: new Date(2017, 0, 7), y: 734 },
-                        { x: new Date(2017, 0, 8), y: 2 },
-                        { x: new Date(2017, 0, 9), y: 123 },
-                        { x: new Date(2017, 0, 10), y: 141 },
-                        { x: new Date(2017, 0, 11), y: 23 },
-                        { x: new Date(2017, 0, 12), y: 943 },
-                        { x: new Date(2017, 0, 13), y: 954 },
-                        { x: new Date(2017, 0, 14), y: 45 },
-                        { x: new Date(2017, 0, 15), y: 239 },
-                        { x: new Date(2017, 0, 16), y: 459 }
-                    ]
+                    dataPoints: Negativos
                 }]
             });
             chart.render();
@@ -155,12 +132,6 @@ window.onload = function ()
                 }
                 chart.render();
             }
-
-
-
-
-
-
         }
        
     },"json");	

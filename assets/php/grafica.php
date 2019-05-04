@@ -8,7 +8,7 @@ if ($mysqli->connect_errno) {
 }
 if(isset($usuario, $contra))
 {
-	$sql = "SELECT * from resultadostwitter";
+	$sql = "SELECT * from resultadostwitter ORDER BY FechaCalculada  ASC ";
   $datos = array();
 
 	if(!$result = $mysqli->query($sql))
@@ -20,7 +20,7 @@ if(isset($usuario, $contra))
     {
 			while($row = $result->fetch_assoc())
       {
-        array_push($datos,$row['CantidadTweetPositivos'],$row['CantidadTweetNeutros'],$row['CantidadTweetNegativos'];
+        array_push($datos,$row['CantidadTweetPositivos'],$row['CantidadTweetNeutros'],$row['CantidadTweetNegativos'],$row['FechaCalculada']);
 			}
 			$result->free();
 		}else
@@ -29,5 +29,6 @@ if(isset($usuario, $contra))
 		}
 	}
   echo json_encode($datos);
+
 }
 ?>
