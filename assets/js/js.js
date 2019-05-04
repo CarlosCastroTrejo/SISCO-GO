@@ -3,7 +3,7 @@ $(document).ready(function(){
             event.preventDefault();
             var usr = $("#usuario").val();
             var psw = $("#contra").val();
-            $.post("http://192.168.64.2/myPHP/index.php", {usuario: usr , contra: psw}, function (data)
+            $.post("http://192.168.64.2/myPHP/login.php", {usuario: usr , contra: psw}, function (data)
             {
                 var resultado = data;
                 alert(resultado);
