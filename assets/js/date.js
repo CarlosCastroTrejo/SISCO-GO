@@ -1,25 +1,11 @@
 $(document).ready(function(){
     $("#registros").on('click', '#register' ,function(event){
             event.preventDefault();
-            var usr = $("#usuario").val();
-            var psw = $("#contra").val();
-            var acc = $("#accion").val();
-            var claU = $("#claseUsuario").val();
-
-            if(acc=="Registrar nuevo usuario"){
-                acc="1";
-            }else{
-                acc="2";
-            }
-
-            if(claU=="Administrador"){
-                claU="1";
-            }else{
-                claU="2";
-            }
-
+            var dateIni = $("#fechaInicio").val();
+            var dateFin = $("#fechaFin").val();
+            var desc = $("#descripcion").val();
             
-            $.post("http://192.168.64.2/myPHP/managment.php", {usuario: usr , contra: psw,accion:acc,clase:claU}, function (data)
+            $.post("http://192.168.64.2/myPHP/dates.php", {inicio: dateIni , fin: dateFin,descripcion:desc}, function (data)
             {
                 var resultado = data;
                 alert(resultado);
