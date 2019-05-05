@@ -6,8 +6,6 @@ $(document).ready(function(){
             $.post("http://192.168.64.2/myPHP/login.php", {usuario: usr , contra: psw}, function (data)
             {
                 var resultado = data;
-                alert(resultado);
-                alert(jQuery.type(resultado));
                 if(resultado==1)
                 {
                     //Usuario normal
