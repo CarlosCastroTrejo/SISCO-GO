@@ -22,7 +22,6 @@ $(document).ready(function(){
             $.post("http://192.168.64.2/myPHP/managment.php", {usuario: usr , contra: psw,accion:acc,clase:claU}, function (data)
             {
                 var resultado = data;
-                alert(resultado);
                 if(resultado==1)
                 {
                     swal({

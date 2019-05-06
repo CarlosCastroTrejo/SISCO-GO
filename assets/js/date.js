@@ -8,7 +8,6 @@ $(document).ready(function(){
             $.post("http://192.168.64.2/myPHP/dates.php", {inicio: dateIni , fin: dateFin,descripcion:desc}, function (data)
             {
                 var resultado = data;
-                alert(resultado);
                 if(resultado==1)
                 {
                     swal({
@@ -25,6 +24,6 @@ $(document).ready(function(){
                         button: "Aceptar"
                       })
                 }
-            });	
-        });
+            });
+    });
 });
