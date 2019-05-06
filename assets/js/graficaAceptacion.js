@@ -24,7 +24,20 @@ window.onload = function ()
     var AMin=0.0;
     var AMax=0.0;
    
-
+    /*
+        stripLines:[
+			{                
+				startValue:1935,
+				endValue:1945, 
+              	label:"Matanza de tlaltelolco",
+              	labelPlacement:"inside",
+              	labelAlign:"far",
+              	labelWrap:true,
+              	labelBackgroundColor: "transparent",
+				color:"#d8d8d8"                      
+			}
+        */
+        
 
     $.post("http://192.168.64.2/myPHP/grafica.php",function (data)
     {

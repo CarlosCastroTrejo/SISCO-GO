@@ -11,6 +11,10 @@ window.onload = function ()
     var dia;
     var date;
 
+    var anio2;
+    var mes2;
+    var dia2;
+
     var AceptMax=[];
     var AceptMin=[];
     var e=2.0;
@@ -23,12 +27,16 @@ window.onload = function ()
     var TNeu=0.0;
     var AMin=0.0;
     var AMax=0.0;
+    var sucesos=[];
+    var fechas=[];
    
+    
+        
 
-
-    $.post("http://192.168.64.2/myPHP/grafica.php",function (data)
+    $.post("http://192.168.64.2/myPHP/lineaTiempo.php",function (data)
     {
-        resultados = data;
+        resultados = data[0];
+        resultados2=data[1];
         
         for (i = 0; i < resultados.length; i+=4) 
         {
@@ -54,10 +62,29 @@ window.onload = function ()
             AceptMax.push({x: fecha[i],y:AMax});
             AceptMin.push({x: fecha[i],y: AMin});
         }
-
         
 
-        
+        for (i = 0; i < resultados2.length; i+=3) 
+        {
+            anio=resultados2[i+1].substr(0,4);
+            mes=resultados2[i+1].substr(5,2);
+            dia=resultados2[i+1].substr(8,2);
+            anio2=resultados2[i+2].substr(0,4);
+            mes2=resultados2[i+2].substr(5,2);
+            dia2=resultados2[i+2].substr(8,2);
+            
+            sucesos.push({                
+				startValue:new Date(anio+" "+mes+" "+dia),
+				endValue:new Date(anio2+" "+mes2+" "+dia2),
+              	label:resultados2[i],
+              	labelPlacement:"inside",
+              	labelAlign:"center",
+              	labelWrap:true,
+              	labelBackgroundColor: "transparent",
+				color:"#d8d8d8"                      
+			});
+            
+        }
 
         if(resultados.length<=0)
         {
@@ -81,7 +108,19 @@ window.onload = function ()
                     crosshair: {
                         enabled: false  ,
                         snapToDataPoint: true
-                    }
+                    },
+                    margin: 10,
+                    stripLines: sucesos/*[{
+                        startValue:new Date(2019+" "+01+" "+3),
+                        endValue:new Date(2019+" "+02+" "+3),
+                        label:"Matanza",
+                        labelPlacement:"inside",
+                        labelAlign:"center",
+                        labelWrap:true,
+                        labelBackgroundColor: "transparent",
+                      color:"#d8d8d8" 
+                    }]*/
+                    
                 },
                 axisY: {
                     title: "Nivel de aceptación",
@@ -90,7 +129,7 @@ window.onload = function ()
                     crosshair: {
                         enabled: false
                     },
-                    margin: 10
+                    margin: 10,
                 },
                 toolTip:{
                     shared:true

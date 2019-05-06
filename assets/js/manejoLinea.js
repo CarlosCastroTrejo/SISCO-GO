@@ -5,7 +5,7 @@ $(document).ready(function(){
             var dateFin = $("#fechaFin").val();
             var desc = $("#descripcion").val();
             
-            $.post("http://192.168.64.2/myPHP/dates.php", {inicio: dateIni , fin: dateFin,descripcion:desc}, function (data)
+            $.post("http://192.168.64.2/myPHP/manejoLinea.php", {inicio: dateIni , fin: dateFin,descripcion:desc}, function (data)
             {
                 var resultado = data;
                 if(resultado==1)
