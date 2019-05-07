@@ -1,103 +1,10 @@
 window.onload = function () 
 {
-    var confusionMatrix = [
-        [169, 10,5,1000],
-        [7, 46,1,500]
-    ];
-
-    var tp = confusionMatrix[0][0];
-    var fn = confusionMatrix[0][1];
-    var fp = confusionMatrix[1][0];
-    var tn = confusionMatrix[1][1];
-
-    var p = tp + fn;
-    var n = fp + tn;
-
-    var accuracy = (tp+tn)/(p+n);
-    var f1 = 2*tp/(2*tp+fp+fn);
-    var precision = tp/(tp+fp);
-    var recall = tp/(tp+fn);
-
-    accuracy = Math.round(accuracy * 100) / 100
-    f1 = Math.round(f1 * 100) / 100
-    precision = Math.round(precision * 100) / 100
-    recall = Math.round(recall * 100) / 100
-
-    var computedData = [];
-    computedData.push({"F1":f1, "PRECISION":precision,"RECALL":recall,"ACCURACY":accuracy});
-
-    var labels = ['Class A', 'Class B'];
-    Matrix({
-        container : '#container',
-        data      : confusionMatrix,
-        labels    : labels,
-        start_color : '#ffffff',
-        end_color : '#e67e22'
-    });
-
-    // rendering the table
-     var table = tabulate(computedData, ["F1", "PRECISION","RECALL","ACCURACY"]);
-
-    /*
-    var resultados=[];
-    var tweetsNegativos=[];
-    var tweetsPositivos=[];
-    var tweetsNeutros=[];
-    var fecha=[];
-    var anio;
-    var mes;
-    var dia;
-    var date;
-
-    var AceptMax=[];
-    var AceptMin=[];
-    var e=1.3;
-    var CTPos=0.48461675;
-    var CTNeg=-0.554680973;
-    var CTNeu=0.755142663;
-    var totalTweets=0.0;
-    var TPos=0.0;
-    var TNeg=0.0;
-    var TNeu=0.0;
-    var AMin=0.0;
-    var AMax=0.0;
    
-        
-
-    $.post("http://192.168.64.2/myPHP/grafica.php",function (data)
+    $.post("http://192.168.64.2/myPHP/matrizConfusion.php",function (data)
     {
         resultados = data;
         
-        for (i = 0; i < resultados.length; i+=4) 
-        {
-            tweetsPositivos.push(parseInt(resultados[i],10));
-            tweetsNeutros.push(parseInt(resultados[i+1],10));
-            tweetsNegativos.push(parseInt(resultados[i+2],10));
-            anio=resultados[i+3].substr(0,4);
-            mes=resultados[i+3].substr(5,2);
-            dia=resultados[i+3].substr(8,2);
-            date=new Date(anio+"-"+mes+"-"+dia);
-            fecha.push(date);
-            
-        }
-        
-        for ( i = 0; i < tweetsPositivos.length; i++) 
-        {
-            totalTweets=(tweetsPositivos[i]+tweetsNeutros[i]+tweetsNegativos[i]);
-
-            TPos=((tweetsPositivos[i])/(totalTweets))*100;
-            TNeg=((tweetsNegativos[i])/(totalTweets))*100;
-            TNeu=((tweetsNeutros[i])/(totalTweets))*100;
-            AMin=(TPos*CTPos)-(TNeg*CTNeg)+(TNeu*CTNeu)-e;
-            AMax=(TPos*CTPos)-(TNeg*CTNeg)+(TNeu*CTNeu)+e;
-            AceptMax.push({x: fecha[i],y:AMax});
-            AceptMin.push({x: fecha[i],y: AMin});
-        }
-
-        
-
-        
-
         if(resultados.length<=0)
         {
             swal({
@@ -108,80 +15,28 @@ window.onload = function ()
               });
         }else
         {
-            var chart = new CanvasJS.Chart("chartContainer", {
-                animationEnabled: true,
-                theme: "light2",
-                title:{
-                    text: "Graph",
-                    fontColor:"white"
-                },
-                axisX:{
-                    valueFormatString: "DD MMM YYYY",
-                    crosshair: {
-                        enabled: false  ,
-                        snapToDataPoint: true
-                    }
-                },
-                axisY: {
-                    title: "Nivel de aceptación",
-                    valueFormatString:"#0.##",
-                    suffix:"%",
-                    crosshair: {
-                        enabled: false
-                    },
-                    margin: 10
-                },
-                toolTip:{
-                    shared:true
-                },  
-                legend:{
-                    cursor:"pointer",
-                    verticalAlign: "bottom",
-                    horizontalAlign: "center",
-                    dockInsidePlotArea: false,
-                    itemclick: toogleDataSeries,
-                    fontSize:15
-                },
-                data: [
-                {
-                    type: "spline",
-                    showInLegend: true,
-                    name: "Aceptación maxima",
-                    lineColor: "#93B52D",
-                    markerColor: "#93B52D",
-                    markerType: "circle",
-                    lineDashType: "solid",
-                    xValueFormatString: "DD MMM, YYYY",
-                    color: "#93B52D",
-                    dataPoints: AceptMax,
-                },
-                {
-                    type: "spline",
-                    showInLegend: true,
-                    name: "Aceptación minima",
-                    lineColor: "#FF5A40",
-                    markerColor: "#FF5A40",
-                    markerType: "circle",
-                    lineDashType: "solid",
-                    xValueFormatString: "DD MMM, YYYY",
-                    color: "#FF5A40",
-                    dataPoints: AceptMin
-                }]
-            });
-            chart.render();
-            
-            function toogleDataSeries(e){
-                if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
-                    e.dataSeries.visible = false;
-                } else{
-                    e.dataSeries.visible = true;
-                }
-                chart.render();
+
+            for ( i = 0; i < resultados.length; i+=3) 
+            {
+                
+                
             }
+
+
+
+            document.getElementById('Pos_pos').innerHTML = resultados[0];
+            document.getElementById('Pos_neu').innerHTML = resultados[2];
+            document.getElementById('Pos_neg').innerHTML = resultados[1];
+            document.getElementById('Neu_pos').innerHTML = resultados[3];
+            document.getElementById('Neu_neu').innerHTML = resultados[5];
+            document.getElementById('Neu_neg').innerHTML = resultados[4];
+            document.getElementById('Neg_pos').innerHTML = resultados[6];
+            document.getElementById('Neg_neu').innerHTML = resultados[8];
+            document.getElementById('Neg_neg').innerHTML = resultados[7];            
+
         }
+            
        
     },"json");	
 
-   
-*/
 }

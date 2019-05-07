@@ -29,12 +29,12 @@
   <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-  <script src="assets/js/main.js"></script>
   <script src="assets/js/matrizConfusion.js"></script>
 
 
 
   <link rel="stylesheet" type="text/css" href="assets/css/style.css"/>
+
 
 
 
@@ -53,10 +53,34 @@
             <a class="btn btn-md btn-secondary display-4" href="menu.html">Regresar a menú</a>
             </div>
             
-            <div  style="height: 430px; width: 100%;">
-                    <div id="dataView"></div>
-                    <div style="display:inline-block;" id="container"></div>
-                    <div style="display:inline-block;" id="legend"></div>
+            <div style="height: 430px; width: 100%; margin-top: 5%">
+                    <table id="matriz">
+                        <tr>
+                            <th>Inferidos / Real</th>
+                            <th>Positivos</th>
+                            <th>Neutros</th>
+                            <th>Negativos</th>
+                        </tr>
+                        <tr>
+                            <th>Positivos</th>
+                            <td id="Pos_pos" > Cell A</td>
+                            <td id="Neu_pos">Cell 2</td>
+                            <td id="Neg_pos">Cell C</td>
+                        </tr>
+                        <tr>
+                            <th>Neutros</th>
+                            <td id="Pos_neu">Cell A</td>
+                            <td id="Neu_neu">Cell B</td>
+                            <td id="Neg_neu">Cell C</td>
+    
+                        </tr>
+                        <tr>
+                            <th>Negativos</th>
+                            <td id="Pos_neg">Cell A</td>
+                            <td id="Neu_neg">Cell B</td>
+                            <td id="Neg_neg">Cell C</td>
+                        </tr>
+                    </table>
             </div>
 
 
