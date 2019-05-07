@@ -80,7 +80,8 @@ window.onload = function ()
               	labelPlacement:"inside",
               	labelAlign:"center",
               	labelWrap:true,
-              	labelBackgroundColor: "transparent",
+                labelBackgroundColor: "transparent",
+                labelFontColor:"black",
 				color:"#d8d8d8"                      
 			});
             
@@ -110,16 +111,7 @@ window.onload = function ()
                         snapToDataPoint: true
                     },
                     margin: 10,
-                    stripLines: sucesos/*[{
-                        startValue:new Date(2019+" "+01+" "+3),
-                        endValue:new Date(2019+" "+02+" "+3),
-                        label:"Matanza",
-                        labelPlacement:"inside",
-                        labelAlign:"center",
-                        labelWrap:true,
-                        labelBackgroundColor: "transparent",
-                      color:"#d8d8d8" 
-                    }]*/
+                    stripLines: sucesos
                     
                 },
                 axisY: {
@@ -132,7 +124,8 @@ window.onload = function ()
                     margin: 10,
                 },
                 toolTip:{
-                    shared:true
+                    shared:true,
+                    enabled:false
                 },  
                 legend:{
                     cursor:"pointer",
