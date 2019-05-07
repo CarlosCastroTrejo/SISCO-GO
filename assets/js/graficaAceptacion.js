@@ -82,7 +82,8 @@ window.onload = function ()
                     crosshair: {
                         enabled: false  ,
                         snapToDataPoint: true
-                    }
+                    },
+                    margin:10
                 },
                 axisY: {
                     title: "Nivel de aceptación",

@@ -1,23 +1,25 @@
 <!DOCTYPE html>
-<html >
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Mobirise v4.9.5, mobirise.com">
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-  <link rel="shortcut icon" href="assets/images/WASE.png" type="image/x-icon">
-  <meta name="description" content="Site Builder Description">
-  <title>Gráfica nivel de Aceptación</title>
-  <link rel="stylesheet" href="assets/tether/tether.min.css">
-  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
-  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
-  <link rel="stylesheet" href="assets/theme/css/style.css">
-  <link rel="stylesheet" href="assets/css/mbr-additional.css" type="text/css">
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <link rel="shortcut icon" href="assets/images/WASE.png" type="image/x-icon">
+    <meta name="description" content="Matriz de confusión">
+    <title>Matriz de confusión</title>
+    <link rel="stylesheet" href="assets/tether/tether.min.css">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="assets/theme/css/style.css">
+    <link rel="stylesheet" href="assets/css/mbr-additional.css" type="text/css">
   
   <script src="https://code.jquery.com/jquery-3.4.0.slim.js" integrity="sha256-milezx5lakrZu0OP9b2QWFy1ft/UEUK6NH1Jqz8hUhQ=" crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="assets/js/matrizConfusion.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+
+
   <script src="assets/web/assets/jquery/jquery.min.js"></script>
   <script src="assets/popper/popper.min.js"></script>
   <script src="assets/tether/tether.min.js"></script>
@@ -27,28 +29,42 @@
   <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/matrizConfusion.js"></script>
 
-  
-  
+
+
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css"/>
+
+
+
 </head>
 <body>
-  <section class="cid-rovmdSomJx" id="grafica">
+    <section class="cid-rovmdSomJx" id="grafica">
     
-    <div class="container" style="background-color: #575757b0; border-radius: 5mm">
-        <div class="row">
-            <div class="title pb-4 col-12"> 
-                <br>
-                <h2 class="align-center mbr-fonts-style display-13">Matriz de confusión</h2>
+        <div class="container" style="background-color: #575757b0; border-radius: 5mm">
+            <div class="row">
+                <div class="title pb-4 col-12"> 
+                    <br>
+                    <h2 class="align-center mbr-fonts-style display-13">Gráfica de nivel de aceptación</h2>
+                </div>
             </div>
-        </div>
-        <div class="mbr-section-btn align-center py-2">
+            <div class="mbr-section-btn align-center py-2">
             <a class="btn btn-md btn-secondary display-4" href="menu.html">Regresar a menú</a>
-        </div>
+            </div>
+            
+            <div  style="height: 430px; width: 100%;">
+                    <div id="dataView"></div>
+                    <div style="display:inline-block;" id="container"></div>
+                    <div style="display:inline-block;" id="legend"></div>
+            </div>
 
-        <div id="chartContainer" style="height: 430px; width: 100%;"></div>
-        <br>
-    </div>
-</section>
-  
+
+            <br>
+        </div>
+    </section>
+
+   
+
+
 </body>
-</html>

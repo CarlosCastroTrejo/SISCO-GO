@@ -17,7 +17,7 @@ window.onload = function ()
 
     var AceptMax=[];
     var AceptMin=[];
-    var e=2.0;
+    var e=1.3;
     var CTPos=0.48461675;
     var CTNeg=-0.554680973;
     var CTNeu=0.755142663;
@@ -54,9 +54,9 @@ window.onload = function ()
         for ( i = 0; i < tweetsPositivos.length; i++) 
         {
             totalTweets=(tweetsPositivos[i]+tweetsNeutros[i]+tweetsNegativos[i]);
-            TPos=(tweetsPositivos[i])/(totalTweets);
-            TNeg=(tweetsNegativos[i])/(totalTweets);
-            TNeu=(tweetsNeutros[i])/(totalTweets);
+            TPos=((tweetsPositivos[i])/(totalTweets))*100;
+            TNeg=((tweetsNegativos[i])/(totalTweets))*100;
+            TNeu=((tweetsNeutros[i])/(totalTweets))*100;
             AMin=(TPos*CTPos)-(TNeg*CTNeg)+(TNeu*CTNeu)-e;
             AMax=(TPos*CTPos)-(TNeg*CTNeg)+(TNeu*CTNeu)+e;
             AceptMax.push({x: fecha[i],y:AMax});
