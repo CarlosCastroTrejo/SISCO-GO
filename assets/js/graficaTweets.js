@@ -68,7 +68,7 @@ window.onload = function ()
                     }
                 },
                 axisY: {
-                    title: "Número de tuits",
+                    title: "Número de tweets",
                     crosshair: {
                         enabled: false
                     },

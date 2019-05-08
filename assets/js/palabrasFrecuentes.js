@@ -36,7 +36,7 @@ window.onload = function ()
                     fontColor:"white"
                 },
                 axisY: {
-                    title: "Número Repeticiones",
+                    title: "Número de repeticiones",
                     margin: 10
                 },
                 data: [{        

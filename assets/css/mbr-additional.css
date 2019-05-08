@@ -1431,6 +1431,8 @@ body {
   padding-top: 90px;
   padding-bottom: 90px;
   background-image: url("../images/LoginB.jpg");
+  min-width: 100%;
+  min-height: 100%;
 }
 .cid-rkqZovKnGg .title {
   margin-bottom: 2rem;
@@ -1497,6 +1499,8 @@ body {
   padding-top: 90px;
   padding-bottom: 90px;
   background-image: url("../images/background1.jpg");
+  min-width: 100%;
+  min-height: 100%;
 }
 .cid-rovmdSomJx h2 {
   margin-bottom: 0;

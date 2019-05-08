@@ -218,11 +218,21 @@ figure[mbr-media-size] {
 
   .mbr-figure {
     width: 100% !important; } }
+
+.middleButton {
+  position: absolute;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+}
+
+    
 /*! Buttons */
 .mbr-section-btn {
   margin-left: -.25rem;
   margin-right: -.25rem;
   font-size: 0; }
+
 
 nav .mbr-section-btn {
   margin-left: 0rem;
