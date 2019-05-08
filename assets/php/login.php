@@ -1,8 +1,8 @@
 <?php
 $mysqli = new mysqli("localhost", "root", "", "SISCO-GO");
 $mysqli->set_charset("utf8");
-$usuario = $_REQUEST['usuario'];
-$contra = $_REQUEST['contra'];
+$usuario = 'carlos';//$_REQUEST['usuario'];
+$contra = 'hola';//$_REQUEST['contra'];
 
 $salt = md5($contra);
 $encriptado = crypt($contra, $salt);
@@ -49,6 +49,31 @@ if(isset($usuario, $contra))
          }
 		   }
 	}
+
+  if($datos==1){
+    $sql = "UPDATE Usuarios SET EstatusUsuario=1 WHERE NombreUsuario='$usuario'";
+    if(!$result = $mysqli->query($sql))
+    {
+        die($mysqli->error);
+    }else
+    {
+      $datos=1;
+    }
+
+  }else if($datos=2){
+
+    $sql ="UPDATE Administrador SET EstatusAdministrador=1 WHERE NombreAdministrador='$usuario'";
+    if(!$result = $mysqli->query($sql))
+    {
+        die($mysqli->error);
+    }else
+    {
+      $datos=1;
+    }
+
+
+  }
+
 	echo $datos;
 }
 ?>
