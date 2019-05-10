@@ -76,7 +76,7 @@ if(isset($usuario, $contra))
 
   $suma=(int)$tweets[0]+$tweets[1]+$tweets[2];
   // It insert the query in today's date. For future development should insert the date by user input
-  $sql = "INSERT INTO resultadostwitter VALUES ('$tweets[2]','$tweets[1]','$tweets[0]','$suma',now())";
+  $sql = "INSERT INTO resultadostwitter VALUES ('$tweets[2]','$tweets[1]','$tweets[0]','$suma','2018-11-30 00:00:00')";
   if(!$result = $mysqli->query($sql))
   {
       die($mysqli->error);

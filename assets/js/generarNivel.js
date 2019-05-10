@@ -4,7 +4,6 @@ $(document).ready(function(){
             $.post("http://192.168.64.2/myPHP/generarNivel.php", function (data)
             {
                 var resultado = data;
-                alert(resultado);
 
                 if(resultado==1)
                 {
